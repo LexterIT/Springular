@@ -16,19 +16,19 @@ app.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'templates/personlist.html',
       controller: 'PersonController'
     })
-    .when('/person/singleperson', {
+    .when('/person/:personid', {
       templateUrl: 'templates/singleperson.html',
       controller: 'PersonController'
     })
-    .when('/person/update', {
+    .when('/person/:personid/update', {
       templateUrl: 'templates/updateperson.html',
       controller: 'PersonController'
     })    
-    .when('/person/update/roles', {
+    .when('/person/:personid/update/roles', {
       templateUrl: 'templates/personroles.html',
       controller: 'PersonController'
     })
-    .when('/person/update/contacts', {
+    .when('/person/:personid/update/contacts', {
       templateUrl: 'templates/personcontacts.html',
       controller: 'PersonController'
     })

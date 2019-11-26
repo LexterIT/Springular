@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('PersonController', ['$scope', '$filter','PersonService', function($scope, $filter, PersonService) {
+app.controller('PersonController', ['$scope', '$filter', 'PersonService', '$routeParams' , function($scope, $filter, PersonService, $routeParams) {
 
 
 	$scope.people = PersonService.people;
@@ -28,7 +28,8 @@ app.controller('PersonController', ['$scope', '$filter','PersonService', functio
   }
 
   $scope.getSelectedPerson = function getSelectedPerson() {
-  	PersonService.getSelectedPerson()
+    var personid = $routeParams.personid;
+  	PersonService.getSelectedPerson(personid)
   	.then(function success(response) {
   		$scope.selectedperson = response.data;
   		$scope.person = response.data;
@@ -36,7 +37,7 @@ app.controller('PersonController', ['$scope', '$filter','PersonService', functio
         $scope.datehiredstring = $filter('date')($scope.selectedperson.dateHired, 'yyyy-MM-dd');
   	},
   	function error(response) {
-  		$scope.message = 'function failed';
+  		$scope.message = 'function failed' + personid;
   	});
   }
 
@@ -72,8 +73,8 @@ app.controller('PersonController', ['$scope', '$filter','PersonService', functio
   }
 
   $scope.personRoles = function personRoles() {
-  	// $scope.selectedid = id;
-  	PersonService.getPersonRoles()
+    var personid = $routeParams.personid;
+  	PersonService.getPersonRoles(personid)
   	.then(function success(response) {
   		$scope.availableRoles = response.data;
   		$scope.message = "Message personRoles:" + ' ' + $scope.person + $scope.person.id;
@@ -159,10 +160,10 @@ app.service('PersonService', ['$http', function($http) {
     return selectedPerson;
   }
 
-  this.getPersonRoles = function getPersonRoles() {
+  this.getPersonRoles = function getPersonRoles(id) {
   	return $http({
   		method: 'GET',
-  		url: '/api/people/roles/'+personId
+  		url: '/api/people/roles/'+id
   	});
   }
 
@@ -174,10 +175,11 @@ app.service('PersonService', ['$http', function($http) {
     });
   }
 
-  this.getSelectedPerson = function getSelectedPerson() {
+  this.getSelectedPerson = function getSelectedPerson(personid) {
+    personId = personid;
   	return $http({
   		method: 'GET',
-  		url: '/api/people/'+personId
+  		url: '/api/people/'+personid
   	});
   	// return selectedPerson;
   }

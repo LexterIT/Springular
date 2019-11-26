@@ -7,9 +7,9 @@
     </tr>
     <tr ng-repeat="person in people">
         <td>{{person.name.firstName}} {{person.name.midName}} {{person.name.lastName}} {{person.name.suffix}}</td>
-        <td><a href="/#!/person/singleperson"><button ng-click="getPerson(person.id)">VIEW</button></a>
+        <td><a href="/#!/person/{{person.id}}"><button>VIEW</button></a>
         </td>
-        <td><a href="/#!/person/update"><button ng-click="getPerson(person.id)">UPDATE</button></a>
+        <td><a href="/#!/person/{{person.id}}/update"><button>UPDATE</button></a>
         </td>
         <td><button ng-click="deletePerson(person)">DELETE</button></td>
     </tr>
