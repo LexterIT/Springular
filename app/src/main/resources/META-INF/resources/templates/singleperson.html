@@ -1,0 +1,48 @@
+<div id="container" ng-init="getSelectedPerson()">
+    <div id="title">Person with ID:{{selectedperson.id}} {{message}}</div>
+    <div id="content">
+        <!-- <input type="hidden" name="id" value="1"/> -->
+        <table class="w3-table-all w3-centered">
+            <tr>
+                <td><p>Name</p></td>
+                <td colspan="3"><h4>{{selectedperson.name.firstName}} {{selectedperson.name.midName}} {{selectedperson.name.lastName}} {{selectedperson.name.suffix}}</h4></td>
+            </tr>
+            <tr>
+                <td><p>Address</p></td>
+                <td colspan="3"><h4>{{selectedperson.address.street}} {{selectedperson.address.barangay}} {{selectedperson.address.municipality}} {{selectedperson.address.zipCode}}</h4></td>
+            </tr>
+            <tr>
+                <td><p>Birthday</p></td>
+                <td><!-- <h4><fmt:formatDate value="${person.birthday}" pattern="yyyy-MM-dd"/></h4> -->
+                    <p>{{selectedperson.birthday | date : 'yyyy-MM-dd'}}</p> 
+                </td>
+                <td><p>Date Hired</p></td>
+                <td><p>{{selectedperson.dateHired | date : 'yyyy-MM-dd'}}</p></td>
+            </tr>
+            <tr>
+                <td><p>GWA</p></td>
+                <td><h4>{{selectedperson.gwa}}</h4></td>
+                <td><p>Currently Employed</p></td>
+                <td><h4>{{selectedperson.isCurEmp}}</h4></td>
+            </tr>
+            <tr>
+                <td><p>Contacts</p></td>
+                <td colspan="3"><p ng-repeat="contactInfo in selectedperson.contactInfo">
+                {{contactInfo.contactType}}:{{contactInfo.contactInfo}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Roles</p></td>
+                <td colspan="3"><p ng-repeat="role in selectedperson.roles">{{role.role}}</p></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/#!/person/update/contacts"><button>Update Contacts</button></a>
+                </td>
+                <td colspan="2"><!-- <form action="edit/roles/${person.id}">
+                    <input type="submit" value="Edit Roles"/> -->
+                    <a href="/#!/person/update/roles"><button>Update Roles</button></a>
+                <!-- </form> --></td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div id="container">
+    <div id="title">Add Person</div>
+    <div id="content">
+        <table>
+            <tr>
+                <td><p>First Name</p></td>
+                <td><input type="text" ng-model="person.name.firstName"/></td>
+                <td><p>Middle Name</p></td>
+                <td><input type="text" ng-model="person.name.midName"/></td>
+            </tr>
+            <tr>
+                <td><p>Last Name</p></td>
+                <td><input type="text" ng-model="person.name.lastName"/></td>
+                <td><p>Suffix</p></td>
+                <td><input type="text" ng-model="person.name.suffix"/></td>
+            </tr>
+            <tr>
+                <td><p>Street</p></td>
+                <td><input type="text" ng-model="person.address.street"/>
+                </td>
+                <td><p>Barangay</p></td>
+                <td><input type="text" ng-model="person.address.barangay"/></td>
+            </tr>
+            <tr>
+                <td><p>Municipality</p></td>
+                <td><input type="text" ng-model="person.address.municipality" /></td>
+                <td><p>Zip Code</p></td>
+                <td><input type="text" ng-model="person.address.zipCode"/></td>
+            </tr>
+            <tr>
+                <td class="w3-center"><p>Birthday</p></td>
+                <td><input type="date" ng-model="person.birthday"/></td>
+                <td class="w3-center"><p>Date Hired</p></td>
+                <td><input type="date" ng-model="person.dateHired"/></td>
+            </tr>
+            <tr>
+                <td><p>GWA</p></td>
+                <td><input type="number" ng-model="person.gwa" value="1" step="0.01" min="1" max="5"/></td>
+                <td><p>Currently Employed</p></td>
+                <td>
+                    <input type="radio" ng-model="person.isCurEmp" value="true" checked> true<br>
+                    <input type="radio" ng-model="person.isCurEmp" value="false"> false<br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="w3-center">
+                    <button onclick="goBack()">Cancel</button></td>
+                <td colspan="2" class="w3-center">
+                    <button ng-click="addPerson(person)"><a href="/#!/person">Add</a></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

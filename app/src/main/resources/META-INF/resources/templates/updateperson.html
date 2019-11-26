@@ -1,0 +1,51 @@
+<div id="container" ng-init="getSelectedPerson()">
+    <div id="title" ng-init="getPerson(selectedperson.id)">Person with ID:{{selectedperson.id}} {{message}}</div>
+    <div id="content">
+        <table>
+            <tr>
+                <td class="w3-center"><p>First Name</p></td>
+                <td><input type="text" ng-model="selectedperson.name.firstName"/></td>
+                <td class="w3-center"><p>Middle Name</p></td>
+                <td><input type="text" ng-model="selectedperson.name.midName"/></td>
+            </tr>
+            <tr>
+                <td class="w3-center"><p>Last Name</p></td>
+                <td><input type="text" ng-model="selectedperson.name.lastName"/></td>
+                <td class="w3-center"><p>Suffix</p></td>
+                <td><input type="text" ng-model="selectedperson.name.suffix"/></td>
+            </tr>
+             <tr>
+                <td class="w3-center"><p>Street</p></td>
+                <td><input type="text" ng-model="selectedperson.address.street"/>
+                </td>
+                <td class="w3-center"><p>Barangay</p></td>
+                <td><input type="text" ng-model="selectedperson.address.barangay"/></td>
+            </tr>
+            <tr>
+                <td class="w3-center"><p>Municipality</p></td>
+                <td><input type="text" ng-model="selectedperson.address.municipality"/></td>
+                <td class="w3-center"><p>Zip Code</p></td>
+                <td><input type="text" ng-model="selectedperson.address.zipCode"/></td>
+            </tr>
+            <tr>
+                <td><p>Birthday</p>
+                    <p>{{birthdaystring}}</p></td>
+                <td><input type="date" ng-model="selectedperson.birthday"/></td>
+                <td><p>Date Hired</p>
+                    <p>{{datehiredstring}}</p></td>
+                <td><input type="date" ng-model="selectedperson.dateHired"/></td>
+            </tr>
+            <tr>
+                <td><p>GWA</p></td>
+                  <td><input type="text" ng-model="selectedperson.gwa"/></td>
+                <td><p>Currently Employed</p></td>
+                  <td><input type="text" ng-model="selectedperson.isCurEmp"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><a href="/#!/person"><button>BACK</button></a></td>
+                <td colspan="2"><a href="/#!/person"><button ng-click="updatePerson()">UPDATE</button></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div ng-init="getSelectedPerson()">
+</div>
+<div ng-init="personRoles()">
+    <table style="width:100%" class="w3-table-all, w3-table-all w3-centered">
+        <tr>
+            <th style="width:45%">Title</th>
+            <th colspan="2">Actions</th>
+        </tr>
+        <tr ng-repeat="curRole in selectedperson.roles">
+            <td>{{curRole.role}}</td>
+            <td colspan="2"><button ng-click="updatePersonRoleDelete(curRole)">DELETE</button></td>
+        </tr>
+        <tr><td colspan="3"></td></tr>
+        <tr ng-repeat="role in availableRoles">
+            <td>{{role.role}}</td>
+            <td colspan="2"><button ng-click="updatePersonRoleAdd(role)">ADD</button></td>
+        </tr>
+    </table>
+</div>
+

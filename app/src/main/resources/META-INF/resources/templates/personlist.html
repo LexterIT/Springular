@@ -1,0 +1,17 @@
+<div>
+<table ng-init="getAllPerson()" style="width:100%" class="w3-table-all, w3-table-all w3-centered">
+    <tr>
+        <th style="width:40%">Name {{message}}</th>
+        <th colspan="2">Actions</th>
+        <td><a href="#!/person/add"><button>Add</button></a></td>
+    </tr>
+    <tr ng-repeat="person in people">
+        <td>{{person.name.firstName}} {{person.name.midName}} {{person.name.lastName}} {{person.name.suffix}}</td>
+        <td><a href="/#!/person/singleperson"><button ng-click="getPerson(person.id)">VIEW</button></a>
+        </td>
+        <td><a href="/#!/person/update"><button ng-click="getPerson(person.id)">UPDATE</button></a>
+        </td>
+        <td><button ng-click="deletePerson(person)">DELETE</button></td>
+    </tr>
+</table>
+</div>

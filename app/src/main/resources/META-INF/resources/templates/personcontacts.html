@@ -1,0 +1,30 @@
+<div ng-init="getSelectedPerson()">
+</div>
+<div ng-init="personContacts()">
+    <table style="width:100%" class="w3-table-all, w3-table-all w3-centered">
+    <tr>
+        <th class="w3-center">Contact Type</th>
+        <th class="w3-center">Contact Information</th>
+        <th colspan="2" class="w3-center">Actions</th> 
+    </tr>
+
+    <tr ng-repeat="contact in personContactInfos">
+        <td><p>{{$index}} {{contact.contactType}}</p></td>
+        <td><p>{{contact.contactInfo}}</p></td>
+        <td colspan="2">
+            <button ng-click="updatePersonContactDelete($index)">DELETE</button>
+        </td>
+    </tr>
+
+    <tr>
+        <td><select ng-model="contactInfo.contactType">
+            <option ng-repeat="contactType in contactTypes">{{contactType}}</option>
+        </select></td>
+        <td>
+            <input type="text" ng-model="contactInfo.contactInfo" placeholder="Enter proper info" />
+        </td>
+        <td colspan="2">
+            <button ng-click="updatePersonContactAdd(contactInfo)">ADD</button>
+        </td>
+    </tr>
+</div>

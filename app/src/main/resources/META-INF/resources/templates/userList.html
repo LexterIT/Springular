@@ -1,0 +1,7 @@
+userList
+
+<div ng-controller="UserCRUDCtrl">
+	<ul ng-init="getAllUsers()">
+		<li ng-repeat="user in users">{{user.name}}  {{user.email}}</li>
+	</ul>
+</div>

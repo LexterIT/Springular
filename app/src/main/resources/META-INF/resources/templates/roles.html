@@ -1,0 +1,20 @@
+<table ng-init="getAllRoles()" style="width:100%" class="w3-table-all, w3-table-all w3-centered" >
+    <tr>
+        <th>Role</th>
+        <th colspan="2">Actions</th>
+    </tr>
+    <tr ng-init="addPage()">        
+        <td><input type="text" ng-model="selectedrole.role"></td>
+        <td colspan="2" ng-show="showAdd"><button ng-click="addRole(selectedrole)">ADD</button></th>
+        <td ng-show="showUpdate"><button ng-click="updateRole()">CONFIRM</button></th>
+        <td ng-show="showUpdate"><button ng-click="addPage()">CANCEL</button></th>
+    </tr>
+    <tr ng-repeat="role in roles">  
+            <td>{{role.role}}</td>
+            <div ng-show="showAdd">
+                <td ><button ng-click="updatePage(role)">UPDATE</button></td>
+                <td ><button ng-click="deleteRole(role)">DELETE</button></td>
+            </div>
+    </tr>
+    <tr><td>{{message}}</td></tr>
+</table>
